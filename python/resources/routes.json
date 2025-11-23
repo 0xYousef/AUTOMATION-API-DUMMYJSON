@@ -1,0 +1,138 @@
+{
+  "auth": {
+    "base": "/auth",
+    "routes": {
+      "login": "/login",
+      "me": "/me",
+      "refresh": "/refresh"
+    }
+  },
+
+  "users": {
+    "base": "/users",
+    "params": {
+      "limit": "limit={limit}",
+      "skip": "skip={skip}",
+      "select": "select={fields}",
+      "key": "key={key}",
+      "value": "value={value}",
+      "query": "q={text}",
+      "sortedBy": "sortedBy={fields}",
+      "order": "order={order}"
+    },
+    "routes": {
+      "add": "/add",
+      "login": "/login",
+      "me": "/me",
+      "byId": "/{id}",
+      "search": "/search",
+      "posts": "/{id}/posts",
+      "carts": "/{id}/carts",
+      "todos": "/{id}/todos",
+      "filter": "/filter"
+    }
+  },
+
+  "products": {
+    "base": "/products",
+    "params": {
+      "limit": "limit={limit}",
+      "skip": "skip={skip}",
+      "select": "select={fields}"
+    },
+    "routes": {
+      "add": "/add",
+      "byId": "/{id}",
+      "categories": "/categories",
+      "categoryList": "/category-list",
+      "category": "/category/{category}"
+    }
+  },
+
+  "posts": {
+    "base": "/posts",
+    "params": {
+      "limit": "limit={limit}",
+      "skip": "skip={skip}",
+      "select": "select={fields}",
+      "key": "key={key}",
+      "value": "value={value}",
+      "sortedBy": "sortedBy={fields}",
+      "order": "order={order}"
+    },
+    "routes": {
+      "add": "/add",
+      "byId": "/{id}",
+      "userPosts": "/user/{id}",
+      "comments": "/{id}/comments"
+    }
+  },
+
+  "comments": {
+    "base": "/comments",
+    "params": {
+      "limit": "limit={limit}",
+      "skip": "skip={skip}",
+      "select": "select={fields}"
+    },
+    "routes": {
+      "add": "/add",
+      "byId": "/{id}",
+      "byPost": "/post/{id}"
+    }
+  },
+
+  "quotes": {
+    "base": "/quotes",
+    "params": {
+      "limit": "limit={limit}",
+      "skip": "skip={skip}",
+      "select": "select={fields}"
+    },
+    "routes": {
+      "byId": "/{id}",
+      "random": "/random"
+    }
+  },
+
+  "recipes": {
+    "base": "/recipes",
+    "params": {
+      "limit": "limit={limit}",
+      "skip": "skip={skip}",
+      "select": "select={fields}",
+      "query": "q={text}",
+      "sortedBy": "sortedBy={fields}",
+      "order": "order={order}"
+    },
+    "routes": {
+      "search": "/search",
+      "tags": "/tags",
+      "byTag": "/tags/{tag}",
+      "mealTypes": "/tags/meal-type"
+    }
+  },
+
+  "todos": {
+    "base": "/todos",
+    "params": {
+      "limit": "limit={limit}",
+      "skip": "skip={skip}",
+      "select": "select={fields}"
+    },
+    "routes": {
+      "add": "/add",
+      "byId": "/{id}",
+      "random": "/random",
+      "userTodos": "/user/{id}"
+    }
+  },
+
+  "mock": {
+    "base": "/http",
+    "routes": {
+      "status": "/{status}",
+      "message": "/{message}"
+    }
+  }
+}

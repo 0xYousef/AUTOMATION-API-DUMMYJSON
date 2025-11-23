@@ -1,0 +1,4 @@
+{
+    "accessToken": {"type": "string"},
+    "refreshToken": {"type": "string"}
+}

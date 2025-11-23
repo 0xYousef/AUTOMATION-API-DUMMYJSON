@@ -1,0 +1,11 @@
+{
+    "id": {"type": "integer"},
+    "username": {"type": "string"},
+    "email": {"type": "string"},
+    "firstName": {"type": "string"},
+    "lastName": {"type": "string"},
+    "gender": {"type": "string"},
+    "image": {"type": "string"},
+    "accessToken": {"type": "string"},
+    "refreshToken": {"type": "string"}
+}
