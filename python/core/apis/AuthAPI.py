@@ -1,6 +1,8 @@
 from config.client import Client
 import requests
 from requests import Response
+from core.dto.AuthForm import AuthForm
+from core.dto.RefreshTokenForm import RefreshTokenForm
 
 class AuthAPI:
 
@@ -9,24 +11,22 @@ class AuthAPI:
       self.routes = client.routes.auth
       self.root = self.env.root + self.routes.base
 
-    def login(self, username: str, password: str) -> Response:
+    def login(self, authForm: AuthForm) -> Response:
       url = self.root + self.routes.routes.login
 
-      print(f"[AuthAPI] Login using user={username}")
+      print(f"[AuthAPI] Login using user={authForm.username}")
       print(f"URL = {url}")
 
-      response = requests.post(url, json={"username": username, "password": password})
+      response = requests.post(url, json=authForm.to_dict())
       data = response.json()
-      self.env.set("accessToken", data.get("accessToken"))
-      self.env.set("refreshToken",data.get("refreshToken"))
+      self.env.set("access-token", data["accessToken"])
+      self.env.set("refresh-token",data["refreshToken"])
+      self.env.set("expired-token",authForm.expired)
       return response
 
-    def refreshToken(self, oldRefreshToken: str) -> Response:
+    def refreshToken(self,refreshTokenForm: RefreshTokenForm) -> Response:
       url = self.root + self.routes.routes.refresh
-      header = {
-          "Authorization":f"Bearar {self.env.get("accessToken")}"
-      }
-      response = requests.post(url, json={"refreshToken": oldRefreshToken})
+      response = requests.post(url, json=refreshTokenForm.to_dict())
       data = response.json()
       if "accessToken" in data:
           self.env.set("accessToken", data["accessToken"])
